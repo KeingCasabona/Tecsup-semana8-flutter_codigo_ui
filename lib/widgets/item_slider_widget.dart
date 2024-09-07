@@ -19,9 +19,9 @@ class ItemSliderWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(14),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.06),
+                  color: Colors.black.withOpacity(0.3),
                   blurRadius: 12,
-                  offset: Offset(4, 4),
+                  offset: Offset(6, 6),
                 ),
               ],
               image: DecorationImage(
@@ -40,9 +40,9 @@ class ItemSliderWidget extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style: GoogleFonts.montserrat(
-                    color: kColorPrimary,
-                    fontWeight: FontWeight.w600,
-                  ),
+                      color: kColorPrimary,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12),
                 ),
                 SizedBox(height: 4),
                 Text(
@@ -51,7 +51,7 @@ class ItemSliderWidget extends StatelessWidget {
                   maxLines: 1,
                   style: GoogleFonts.montserrat(
                     color: kColorPrimary.withOpacity(0.6),
-                    fontSize: 13,
+                    fontSize: 12,
                   ),
                 ),
                 SizedBox(height: 6),
@@ -64,7 +64,7 @@ class ItemSliderWidget extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: GoogleFonts.montserrat(
-                          color: Colors.green,
+                          color: kColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
