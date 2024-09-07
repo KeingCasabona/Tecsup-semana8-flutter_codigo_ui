@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_ui/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,15 +19,14 @@ class HomePage extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Color(0XFF0A494E),
-                    Color(0xff05172a),
+                    kColorPrimary,
+                    kColorSecondary,
                   ],
                 ),
               ),
               padding: EdgeInsets.symmetric(horizontal: 20),
               //height: 300,
               width: double.infinity,
-
               child: Padding(
                 padding:
                     EdgeInsets.only(top: MediaQuery.of(context).padding.top),
@@ -117,12 +117,10 @@ class HomePage extends StatelessWidget {
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            gradient: LinearGradient(
-                              colors: [
-                                Color(0xffFFb404),
-                                Color.fromARGB(255, 255, 200, 71),
-                              ],
-                            ),
+                            gradient: LinearGradient(colors: [
+                              kColorTertiary,
+                              kColorQuaternary,
+                            ]),
                           ),
                         )
                       ],
@@ -130,6 +128,123 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: 20),
                   ],
                 ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 26),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Parking Near You',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: kColorPrimary,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'View More',
+                            style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w700,
+                              color: kColorTertiary,
+                            ),
+                          ),
+                          SizedBox(width: 6),
+                          Icon(Icons.arrow_forward_ios, color: kColorTertiary),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16),
+                  Container(
+                    height: 220,
+                    width: 160,
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 120,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.06),
+                                blurRadius: 12,
+                                offset: Offset(4, 4),
+                              ),
+                            ],
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage('assets/images/maps.png'),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 12),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Block C Benyamin',
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                style: GoogleFonts.montserrat(
+                                  color: kColorPrimary,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                'JL. Kita Berduamin',
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                style: GoogleFonts.montserrat(
+                                  color: kColorPrimary.withOpacity(0.6),
+                                  fontSize: 13,
+                                ),
+                              ),
+                              SizedBox(height: 6),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'Open',
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                      style: GoogleFonts.montserrat(
+                                        color: Colors.green,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Expanded(
+                                      child: Text(
+                                        '07:00 - 22:00',
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        style: GoogleFonts.montserrat(
+                                          color: kColorPrimary.withOpacity(0.6),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
