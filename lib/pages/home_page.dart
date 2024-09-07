@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_ui/constants.dart';
+import 'package:flutter_codigo_ui/widgets/item_slider_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
@@ -107,7 +108,7 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(width: 12),
+                        const SizedBox(width: 12),
                         Container(
                           height: 54,
                           width: 54,
@@ -125,16 +126,21 @@ class HomePage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 26),
-              child: Column(
-                children: [
-                  Row(
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 30,
+                    bottom: 12,
+                    left: 20,
+                    right: 20,
+                  ),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -160,92 +166,42 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16),
-                  Container(
-                    height: 220,
-                    width: 160,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 120,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.06),
-                                blurRadius: 12,
-                                offset: Offset(4, 4),
-                              ),
-                            ],
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage('assets/images/maps.png'),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: 12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Block C Benyamin',
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                style: GoogleFonts.montserrat(
-                                  color: kColorPrimary,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Text(
-                                'JL. Kita Berduamin',
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                style: GoogleFonts.montserrat(
-                                  color: kColorPrimary.withOpacity(0.6),
-                                  fontSize: 13,
-                                ),
-                              ),
-                              SizedBox(height: 6),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      'Open',
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                      style: GoogleFonts.montserrat(
-                                        color: Colors.green,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Expanded(
-                                      child: Text(
-                                        '07:00 - 22:00',
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 1,
-                                        style: GoogleFonts.montserrat(
-                                          color: kColorPrimary.withOpacity(0.6),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: BouncingScrollPhysics(),
+                  child: Row(
+                    children: [
+                      ItemSliderWidget(),
+                      ItemSliderWidget(),
+                      ItemSliderWidget(),
+                      ItemSliderWidget(),
+                      ItemSliderWidget(),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 20,
+                    bottom: 10,
+                    left: 20,
+                    right: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'History Parking',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: kColorPrimary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
